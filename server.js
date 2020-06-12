@@ -1,6 +1,7 @@
 const express = require("express");
 
 const FoodsRouter = require("./foods/foods-router");
+const IngredientsRouter = require("./foods/ingredients-router");
 
 const server = express();
 
@@ -11,5 +12,6 @@ server.get("/", (req, res) => {
 });
 
 server.use("/api/foods", FoodsRouter);
+server.use('/api/ingredients', IngredientsRouter)
 
 module.exports = server;

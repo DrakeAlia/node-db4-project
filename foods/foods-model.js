@@ -43,14 +43,14 @@ function getRecipesByIngredients(id) {
     .select("recipes.name")
     .from("recipes")
     .join(
-      "recipe_ingredients",
+      "recipes_ingredients",
       "recipes.id",
       "=",
-      "recipe_ingredients.recipes_id"
+      "recipes_ingredients.recipes_id"
     )
     .join(
       "ingredients",
-      "recipe_ingredients.ingredients_id",
+      "recipes_ingredients.ingredients_id",
       "=",
       "ingredients.id"
     )
@@ -82,7 +82,7 @@ function addStep(stepData, id) {
 
 function update(changes, id) {
   return db("foods")
-    .where({ id }) //{id} grabbing whole object
+    .where({ id }) 
     .update(changes)
     .then(() => {
       return findById(id);

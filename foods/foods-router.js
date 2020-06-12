@@ -81,6 +81,7 @@ router.post("/", (req, res) => {
     });
 });
 
+
 router.post("/:id/steps", (req, res) => {
   const stepData = req.body;
   const { id } = req.params;
@@ -140,5 +141,18 @@ router.delete("/:id", (req, res) => {
       res.status(500).json({ message: "Failed to delete scheme" });
     });
 });
+
+
+// router.get('/ingredients/:id/recipes', (req, res) => {
+//     const { id } = req.params;
+
+//     foods.findRecipeIngredient(id)
+//       .then(foods => {
+//         res.json(foods);
+//       })
+//       .catch(err => {
+//         res.status(500).json({ message: 'problem with the db' });
+//       });
+//   });
 
 module.exports = router;
